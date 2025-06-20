@@ -5,6 +5,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 from fastapi import APIRouter,FastAPI
 from src.routes import login,cliente,favorito,produtos
 
+
 app = FastAPI(title="Api Cliente Produto")
 router = APIRouter()
 

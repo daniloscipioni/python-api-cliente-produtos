@@ -19,7 +19,7 @@ Antes de executar o projeto, é necessario ter:
 
 Caso tenha o docker instalado executar comando a seguir na raiz do projeto
 
-`docker compose -f postgresql-compose.yml up -d`
+`docker compose -f environment/postgresql-compose.yml up -d`
 
 ## Variaveis de ambiente
 
@@ -47,13 +47,20 @@ favoritos cadastrados
 
 ## Execução do projeto
 
+1. Criar ambiente python
 
-1. Instalar as dependencias do python
+`python -m venv venv`
 
-`pip install -r requirements.txt`
+2. Ativar o ambiente
+
+`.\.venv\Scripts\activate`
+
+3. Instalar as dependencias do python no ambiente
+
+`pip3 install -r requirements.txt`
 
 
-2. Iniciar o servidor
+4. Iniciar o servidor
 
 Rodar o projeto com seguinte comando na raiz do projeto:
 
@@ -62,10 +69,18 @@ Rodar o projeto com seguinte comando na raiz do projeto:
 Isso irá subir um servidor no endereco http://127.0.0.1:8000.
 
 
-3. Acessar a documentação
+5. Acessar a documentação
 
 Assim que o serviço for iniciado é possivel acessar a documentação atraves dos links:
 
 Swagger UI: http://127.0.0.1:8000/docs
 
 ReDoc: http://127.0.0.1:8000/redoc
+
+## Decisões técnicas
+-Foi optado por salvar os dados do produto no banco de dados para que fique menos depentende de uma api externa, caso contrario só salvando
+os códigos precisaria chamar a api externa no salvamento do favorito(para validação dos codigos de produtos disponiveis) e na consulta do cliente com os dados do produto
+
+-Foi usado o docker com posgresql para facilitar a subida do banco de dados
+
+-foi usado o clean-archtecture como padrão por ser um dos mais usados no mercado hoje em dia

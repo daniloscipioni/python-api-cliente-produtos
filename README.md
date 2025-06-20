@@ -49,7 +49,7 @@ favoritos cadastrados
 
 1. Criar ambiente python
 
-`python -m venv venv`
+`python -m venv .venv`
 
 2. Ativar o ambiente
 

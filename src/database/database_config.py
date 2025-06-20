@@ -17,14 +17,15 @@ from psycopg2.errors import UniqueViolation
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-
+from dotenv import dotenv_values
 
 
 class DatabaseConfig:
 
     def __init__(self):
+        config = dotenv_values(".env")
 
-        self.connection_string = ("postgresql://admin:admin@localhost:5432/postgres")
+        self.connection_string = (config["POSTGRES_URL"])
 
         engine = create_engine(self.connection_string)
 
